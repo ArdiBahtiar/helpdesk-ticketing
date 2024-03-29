@@ -15,6 +15,7 @@ return new class extends Migration
             $table->increments('id');
             $table->string('name');
             $table->boolean('is_done')->default(false);
+            $table->enum('dept', ['admin', 'user', 'manager'])->nullable();
             $table->timestamps();
         });
     }

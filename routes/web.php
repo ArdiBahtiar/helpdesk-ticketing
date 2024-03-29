@@ -16,29 +16,27 @@ use Illuminate\Support\Facades\Route;
 
 
 // NAMPILIN DASBOR TODO-LIST
-// Route::get('/', 'TodoController@index');
-Route::get('/', [TodoController::class, 'index']);
+Route::get('/', 'App\Http\Controllers\TodoController@index')->middleware('auth');
+
 
 // CREATE TODO FORM
-// Route::get('/todos/create', 'TodoController@create');
-Route::get('/todos/create', [TodoController::class, 'create']);
+Route::get('/todos/create', 'App\Http\Controllers\TodoController@create')->middleware('auth');
 
 
 // ADD TODO
-// Route::post('/todos', 'TodoController@store');
-Route::post('/todos', [TodoController::class, 'store']);
+Route::post('/todos', 'App\Http\Controllers\TodoController@store');
 
 
 // SHOW EDIT TODO
-// Route::get('todos/{todo}/edit', 'TodoController@edit');
-Route::get('todos/{todo}/edit', [TodoController::class, 'edit']);
+Route::get('todos/{todo}/edit', 'App\Http\Controllers\TodoController@edit');
 
 
 // UPDATE TODO
-// Route::put('todos/{todo}', 'TodoController@update');
-Route::put('todos/{todo}', [TodoController::class, 'update']);
+Route::put('todos/{todo}', 'App\Http\Controllers\TodoController@update');
 
 
 // DELETE TODO
-// Route::delete('/todos/{todo}/delete', 'TodoController@delete');
-Route::delete('/todos/{todo}/delete', [TodoController::class, 'delete']);
+Route::delete('/todos/{todo}/delete', 'App\Http\Controllers\TodoController@delete');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

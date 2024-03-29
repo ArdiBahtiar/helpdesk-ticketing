@@ -12,7 +12,7 @@
 
                             <div class="form-group">
                                 <label class="control-label">Name</label>
-                                <input type="text" name="value" class="form-control" value="{{ $todo->value }}">
+                                <input type="text" name="name" class="form-control" value="{{ $todo->name }}">
                             </div>
 
                             <div class="form-group">

@@ -9,6 +9,6 @@ class Todo extends Model
 {
     // use HasFactory;
 
-    protected $table = 'postgre-todos';
-    public $fillable = ['value', 'is_done'];
+    protected $table = 'todos';
+    public $fillable = ['name', 'is_done', 'dept'];
 }

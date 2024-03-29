@@ -1,4 +1,5 @@
-@extends('app')
+{{-- @extends('app') --}}
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -28,7 +29,7 @@
                             @endif
                             @foreach($todos as $todo)
                                 <tr>
-                                    <td>{{ $todo->value }}</td>
+                                    <td>{{ $todo->name }}</td>
                                     <td>{{ $todo->is_done ? 'Done' : 'Not Done' }}</td>
                                     <td>
                                         <a class="btn btn-warning" href="{{ url('todos/'.$todo->id.'/edit') }}">Edit</a>
