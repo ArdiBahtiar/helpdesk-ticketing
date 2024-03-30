@@ -30,6 +30,30 @@
                             </div>
 
                             <div class="form-group">
+                                <label class="control-label">Status</label>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" value="on_Request" name="status"> on_Request
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" value="on_Progress" name="status"> on_Progress
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" value="Pending" name="status"> Pending
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" value="Finished" name="status"> Finished
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
                                 <button type="submit" class="btn btn-primary">Update Todo</button>
                             </div>
                         </form>

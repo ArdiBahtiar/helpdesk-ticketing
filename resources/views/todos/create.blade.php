@@ -18,6 +18,25 @@
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary">Add Todo</button>
                             </div>
+
+                            <div class="form-group">
+                                <label class="control-label">For which Dept?</label>
+                                <div class="radio">
+                                    <label>
+                                    <input type="radio" value="admin" name="dept">Admin
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                    <input type="radio" value="user" name="dept">User
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                    <input type="radio" value="manager" name="dept">Manager
+                                    </label>
+                                </div>
+                            </div>
                         </form>
 
                     </div>
