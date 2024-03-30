@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('todos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->boolean('is_done')->default(false);
+            // $table->boolean('is_done')->default(false);
             $table->enum('status', ['on_Request', 'on_Progress', 'Pending', 'Finished'])->default('on_Request');
             $table->enum('dept', ['admin', 'user', 'manager'])->default('user');
             $table->timestamps();

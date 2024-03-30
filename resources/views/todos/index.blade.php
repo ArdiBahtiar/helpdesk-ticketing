@@ -1,57 +1,34 @@
-{{-- @extends('app') --}}
 @extends('layouts.app')
 
 @section('content')
 <div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Todo List</div>
-                <div class="panel-body">
-                    <a href="{{ url('todos/create') }}" class="btn btn-primary">Add todo</a>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Dashboard') }}</div>
 
-                    <br>
-                    <br>
-                    <br>
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
 
-                    <div class="table-responsive">
-                        <table class="table">
-                            <tr>
-                                <th>Name</th>
-                                <th>Is Done</th>
-                                <th>Department</th>
-                                <th>Status</th>
-                                <th>Action</th>
-                            </th>
+                    <!-- {{ __('You are logged in!') }} -->
 
-                            @if(! count($todos))
-                                <tr>
-                                    <td colspan="3">No todo</td>
-                                </tr>
-                            @endif
-                            @foreach($todos as $todo)
-                                <tr>
-                                    <td>{{ $todo->name }}</td>
-                                    <td>{{ $todo->is_done ? 'Done' : 'Not Done' }}</td>
-                                    <td>{{ $todo->dept}}</td>
-                                    <td>{{ $todo->status}}</td>
-                                    <td>
-                                        <a class="btn btn-warning" href="{{ url('todos/'.$todo->id.'/edit') }}">Edit</a>
-                                        {{-- <a class="btn btn-danger" href="{{ url('todos/'.$todo->id.'/delete') }}">Delete</a> --}}
-                                        <form method="POST" action="{{ url('todos/'.$todo->id.'/delete') }}">
-                                            @csrf
-                                            @method('delete')
-                                            
-                                            <button type='submit' class='border-0' data-toggle="tooltip">
-                                              {{-- <i class="fa fa-trash"></i> --}}
-                                              <a class="btn btn-danger">Delete</a>
-                                            </button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </table>
-                    </div>
+                    @can('isAdmin')
+                        <div class="btn btn-success btn-lg">
+                            <a href="{{ url('todos/indexAdmin') }}" class="btn btn-primary">Admin</a>
+                        </div>
+                    @elsecan('isManager')
+                        <div class="btn btn-primary btn-lg">
+                            <a href="{{ url('todos/indexManager') }}" class="btn btn-primary">Manager</a>
+                        </div>
+                    @else
+                        <div class="btn btn-info btn-lg">
+                            <a href="{{ url('todos/indexUser') }}" class="btn btn-primary">User</a>
+                        </div>
+                    @endcan
                 </div>
             </div>
         </div>

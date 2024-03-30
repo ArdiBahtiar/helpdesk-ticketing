@@ -23,7 +23,7 @@
                                 <label class="control-label">For which Dept?</label>
                                 <div class="radio">
                                     <label>
-                                    <input type="radio" value="user" name="dept">User
+                                    <input type="radio" value="admin" name="dept">Admin
                                     </label>
                                 </div>
                                 <div class="radio">

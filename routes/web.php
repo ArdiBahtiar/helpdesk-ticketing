@@ -17,10 +17,15 @@ use Illuminate\Support\Facades\Route;
 
 // NAMPILIN DASBOR TODO-LIST
 Route::get('/', 'App\Http\Controllers\TodoController@index')->middleware('auth');
+Route::get('/todos/indexAdmin', 'App\Http\Controllers\TodoController@indexAdmin')->middleware('auth');
+Route::get('/todos/indexManager', 'App\Http\Controllers\TodoController@indexManager')->middleware('auth');
+Route::get('/todos/indexUser', 'App\Http\Controllers\TodoController@indexUser')->middleware('auth');
 
 
 // CREATE TODO FORM
 Route::get('/todos/create', 'App\Http\Controllers\TodoController@create')->middleware('auth');
+Route::get('/todos/createManager', 'App\Http\Controllers\TodoController@createManager')->middleware('auth');
+Route::get('/todos/createUser', 'App\Http\Controllers\TodoController@createUser')->middleware('auth');
 
 
 // ADD TODO
