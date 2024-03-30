@@ -9,7 +9,8 @@ class TodoController extends Controller
 {
     public function index() 
     {
-        $todos = Todo::all();               // reads everything from table into memory, ::select('SELECT * FROM table') buat milih
+        // $todos = Todo::all();               // reads everything from table into memory, ::select('SELECT * FROM table') buat milih
+        $todos = Todo::where('dept', '=', 'admin')->get(); 
         $data = ['todos' => $todos];        // variable $data buat penyimpanan dari object todos ke variable $todos
         return view('todos.index', $data);  // nested view directories, masuk ke resource/views/todos/index.blade.php buat ngambil $data dari situ
     }

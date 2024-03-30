@@ -19,6 +19,8 @@
                             <tr>
                                 <th>Name</th>
                                 <th>Is Done</th>
+                                <th>Department</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </th>
 
@@ -31,6 +33,8 @@
                                 <tr>
                                     <td>{{ $todo->name }}</td>
                                     <td>{{ $todo->is_done ? 'Done' : 'Not Done' }}</td>
+                                    <td>{{ $todo->dept}}</td>
+                                    <td>{{ $todo->status}}</td>
                                     <td>
                                         <a class="btn btn-warning" href="{{ url('todos/'.$todo->id.'/edit') }}">Edit</a>
                                         {{-- <a class="btn btn-danger" href="{{ url('todos/'.$todo->id.'/delete') }}">Delete</a> --}}
