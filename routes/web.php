@@ -28,6 +28,10 @@ Route::get('/todos/createManager', 'App\Http\Controllers\TodoController@createMa
 Route::get('/todos/createUser', 'App\Http\Controllers\TodoController@createUser')->middleware('auth');
 
 
+// NAMPILIN DASBOR REQUESTED LIST
+Route::get('/todos/requested', 'App\Http\Controllers\TodoController@requestedAdmin')->middleware('auth');
+
+
 // ADD TODO
 Route::post('/todos', 'App\Http\Controllers\TodoController@store');
 

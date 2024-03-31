@@ -15,30 +15,40 @@ class TodoController extends Controller
 
     public function indexAdmin() 
     {
-        // $todos = Todo::all();               // reads everything from table into memory, ::select('SELECT * FROM table') buat milih
-        $todos = Todo::where('dept', '=', 'admin')->get(); // query from table into memory, ::select('SELECT * FROM table WHERE dept = "admin"') buat milih
-        $data = ['todos' => $todos];        // variable $dataAdmin buat penyimpanan dari object todos ke variable $todosAdmin
-        return view('todos.indexAdmin', $data);  // nested view directories, masuk ke resource/views/todos/index.blade.php buat ngambil $data dari situ
+        // $todos = Todo::all();                            // reads everything from table into memory, ::select('SELECT * FROM table') buat milih
+        $todos = Todo::where('dept', '=', 'admin')->get();  // query from table into memory, ::select('SELECT * FROM table WHERE dept = "admin"') buat milih
+        $data = ['todos' => $todos];                        // variable $dataAdmin buat penyimpanan dari object todos ke variable $todosAdmin
+        return view('todos.indexAdmin', $data);             // nested view directories, masuk ke resource/views/todos/index.blade.php buat ngambil $data dari situ
     }
 
     public function indexManager() 
     {
-        // $todos = Todo::all();               // reads everything from table into memory, ::select('SELECT * FROM table') buat milih
+        // $todos = Todo::all();                            // reads everything from table into memory, ::select('SELECT * FROM table') buat milih
         $todos = Todo::where('dept', '=', 'manager')->get(); // query from table into memory, ::select('SELECT * FROM table WHERE dept = "admin"') buat milih
-        $data = ['todos' => $todos];        // variable $dataAdmin buat penyimpanan dari object todos ke variable $todosAdmin
-        return view('todos.indexManager', $data);  // nested view directories, masuk ke resource/views/todos/index.blade.php buat ngambil $data dari situ
+        $data = ['todos' => $todos];                        // variable $dataAdmin buat penyimpanan dari object todos ke variable $todosAdmin
+        return view('todos.indexManager', $data);           // nested view directories, masuk ke resource/views/todos/index.blade.php buat ngambil $data dari situ
     }
 
     public function indexUser() 
     {
-        // $todos = Todo::all();               // reads everything from table into memory, ::select('SELECT * FROM table') buat milih
-        $todos = Todo::where('dept', '=', 'user')->get(); // query from table into memory, ::select('SELECT * FROM table WHERE dept = "admin"') buat milih
-        $data = ['todos' => $todos];        // variable $dataAdmin buat penyimpanan dari object todos ke variable $todosAdmin
-        return view('todos.indexUser', $data);  // nested view directories, masuk ke resource/views/todos/index.blade.php buat ngambil $data dari situ
+        // $todos = Todo::all();                            // reads everything from table into memory, ::select('SELECT * FROM table') buat milih
+        $todos = Todo::where('dept', '=', 'user')->get();   // query from table into memory, ::select('SELECT * FROM table WHERE dept = "admin"') buat milih
+        $data = ['todos' => $todos];                        // variable $dataAdmin buat penyimpanan dari object todos ke variable $todosAdmin
+        return view('todos.indexUser', $data);              // nested view directories, masuk ke resource/views/todos/index.blade.php buat ngambil $data dari situ
     }
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public function requestedAdmin()
+    {
+        $request = Todo::where('requestor_dept', '=', 'admin')->get();
+        $ReqData = ['request' => $request];
+        return view('todos.requested', $ReqData);
+    }
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
 
     public function create()
     {
