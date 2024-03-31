@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Todo;
 // use App\Http\Requests;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TodoController extends Controller
 {
@@ -36,9 +37,19 @@ class TodoController extends Controller
         return view('todos.indexUser', $data);  // nested view directories, masuk ke resource/views/todos/index.blade.php buat ngambil $data dari situ
     }
 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     public function create()
     {
-        return view('todos.create');
+        $userName = Auth::user()->name;
+        $userDept = Auth::user()->dept;
+        return view('todos.create', [
+            'userNameData' => $userName,
+            'userDeptData' => $userDept,
+        ]);
+        // return view('todos.create', ['userDeptData' => $userDept]);
+        // return view('todos.create');
     }
 
     public function createManager()
@@ -73,4 +84,11 @@ class TodoController extends Controller
         $todo->delete();
         return redirect('/');
     }
+
+    // public function userID()
+    // {
+    //     $userID = Auth::id();
+    //     $dataID = ['useID' => $userID];
+    //     return view('todos.create', $dataID);
+    // }
 }

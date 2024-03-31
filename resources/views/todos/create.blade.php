@@ -16,10 +16,6 @@
                             </div>
 
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary">Add Todo</button>
-                            </div>
-
-                            <div class="form-group">
                                 <label class="control-label">For which Dept?</label>
                                 <div class="radio">
                                     <label>
@@ -31,6 +27,13 @@
                                     <input type="radio" value="manager" name="dept">Manager
                                     </label>
                                 </div>
+                            </div>
+
+                            <input type="hidden" value="{{ $userNameData }}" name="requestor">
+                            <input type="hidden" value="{{ $userDeptData }}" name="requestor_dept">
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Add Todo</button>
                             </div>
                         </form>
 
