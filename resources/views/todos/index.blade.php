@@ -23,13 +23,13 @@
                         </div>
                     @elsecan('isManager')
                         <div class="btn btn-primary btn-lg">
-                            <a href="{{ url('todos/indexManager') }}" class="btn btn-primary">Manager</a>
-                            {{-- <a href="{{ url('todos/indexManager') }}" class="btn btn-primary">Manager</a> --}}
+                            <a href="{{ url('todos/indexManager') }}" class="btn btn-primary">Manager's Work Order</a>
+                            <a href="{{ url('todos/requestedManager') }}" class="btn btn-primary">Manager's Request</a>
                         </div>
                     @else
                         <div class="btn btn-info btn-lg">
-                            <a href="{{ url('todos/indexUser') }}" class="btn btn-primary">User</a>
-                            {{-- <a href="{{ url('todos/indexUser') }}" class="btn btn-primary">User</a> --}}
+                            <a href="{{ url('todos/indexUser') }}" class="btn btn-primary">User's Work Order</a>
+                            <a href="{{ url('todos/requestedUser') }}" class="btn btn-primary">User's Request</a>
                         </div>
                     @endcan
                 </div>

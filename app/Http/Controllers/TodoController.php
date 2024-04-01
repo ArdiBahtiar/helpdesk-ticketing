@@ -47,6 +47,20 @@ class TodoController extends Controller
         return view('todos.requested', $ReqData);
     }
 
+    public function requestedUser()
+    {
+        $request = Todo::where('requestor_dept', '=', 'user')->get();
+        $ReqData = ['request' => $request];
+        return view('todos.requestedUser', $ReqData);
+    }
+
+    public function requestedManager()
+    {
+        $request = Todo::where('requestor_dept', '=', 'manager')->get();
+        $ReqData = ['request' => $request];
+        return view('todos.requestedManager', $ReqData);
+    }
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
 
@@ -58,19 +72,29 @@ class TodoController extends Controller
             'userNameData' => $userName,
             'userDeptData' => $userDept,
         ]);
-        // return view('todos.create', ['userDeptData' => $userDept]);
-        // return view('todos.create');
     }
 
     public function createManager()
     {
-        return view('todos.createManager');
+        $userName = Auth::user()->name;
+        $userDept = Auth::user()->dept;
+        return view('todos.createManager', [
+            'userNameData' => $userName,
+            'userDeptData' => $userDept,
+        ]);
     }
 
     public function createUser()
     {
-        return view('todos.createUser');
+        $userName = Auth::user()->name;
+        $userDept = Auth::user()->dept;
+        return view('todos.createUser', [
+            'userNameData' => $userName,
+            'userDeptData' => $userDept,
+        ]);
     }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
 
     public function store(Request $request)
     {
