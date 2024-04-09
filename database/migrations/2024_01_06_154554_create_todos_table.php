@@ -18,6 +18,8 @@ return new class extends Migration
             $table->enum('status', ['on_Request', 'on_Progress', 'Pending', 'Finished'])->default('on_Request');
             $table->enum('dept', ['admin', 'user', 'manager'])->default('user');
             $table->timestamps();
+            $table->string('requestor');
+            $table->enum('requestor_dept', ['user', 'admin', 'manager']);
         });
     }
 
