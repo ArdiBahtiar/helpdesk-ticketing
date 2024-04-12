@@ -4,7 +4,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-12 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Todo List for Manager</div>
                 <div class="panel-body">
@@ -37,15 +37,15 @@
                                     <td>{{ $todo->status}}</td>
                                     <td>
                                         <a class="btn btn-warning" href="{{ url('todos/'.$todo->id.'/edit') }}">Edit</a>
-                                        {{-- <a class="btn btn-danger" href="{{ url('todos/'.$todo->id.'/delete') }}">Delete</a> --}}
-                                        <form method="POST" action="{{ url('todos/'.$todo->id.'/delete') }}">
+                                        <a class="btn btn-danger" href="{{ url('todos/'.$todo->id.'/delete') }}">Delete</a>
+                                        {{-- <form method="POST" action="{{ url('todos/'.$todo->id.'/delete') }}">
                                             @csrf
                                             @method('delete')
                                             
                                             <button type='submit' class='border-0' data-toggle="tooltip">
                                               <a class="btn btn-danger">Delete</a>
                                             </button>
-                                        </form>
+                                        </form> --}}
                                     </td>
                                 </tr>
                             @endforeach

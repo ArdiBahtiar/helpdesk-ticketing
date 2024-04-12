@@ -47,7 +47,8 @@ Route::put('todos/{todo}', 'App\Http\Controllers\TodoController@update');
 
 
 // DELETE TODO
-Route::delete('/todos/{todo}/delete', 'App\Http\Controllers\TodoController@delete');
+// Route::delete('/todos/{todo}/delete', 'App\Http\Controllers\TodoController@delete');
+Route::get('/todos/{todo}/delete', 'App\Http\Controllers\TodoController@delete');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
